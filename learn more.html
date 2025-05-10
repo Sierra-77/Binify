@@ -3,25 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- 引入Inter字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* New navigation bar styles */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3rem;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-decoration: none;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 1rem;
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+        
+        .hamburger-line {
+            height: 0.15rem;
+            width: 100%;
+            background-color: black;
+            border-radius: 0.075rem;
+        }
+        
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: black;
+        }
+
         body {
-            background: #EFEFEF; /* 设置背景色为 #EFEFEF */
+            background: #EFEFEF;
             margin-top: 3rem;
-            font-family: 'Inter', sans-serif; /* 应用Inter字体 */
+            font-family: 'Inter', sans-serif;
         }
 
         h1 {
-            color: #333; /* 修改标题颜色，使其更易读 */
+            color: #333;
             font-size: 26px;
             text-align: center;
         }
 
         h2 {
-            color: #333; /* 修改小标题颜色 */
+            color: #333;
             font-size: 20px;
             text-align: center;
-            margin-top: 10px; /* 小标题与主标题之间的间距 */
+            margin-top: 10px;
         }
 
         .scrollable-card-grid {
@@ -32,21 +78,21 @@
             display: flex;
             overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory; /* 启用卡片居中的效果 */
+            scroll-snap-type: x mandatory;
         }
 
         .scrollable-card {
-            min-width: 240px;  /* 缩小卡片的宽度 */
+            min-width: 240px;
             min-height: 350px;
             padding: 1.5rem;
             border-radius: 16px;
             background: #17141d;
-            box-shadow: 0 9px 15px rgba(0, 0, 0, 0.5); /* 增加阴影的显现度 */
+            box-shadow: 0 9px 15px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             transition: 0.2s;
             margin: 0;
-            scroll-snap-align: center; /* 保证卡片点击时会居中 */
+            scroll-snap-align: center;
             cursor: pointer;
         }
 
@@ -59,26 +105,25 @@
             color: #fff;
             font-size: 20px;
             margin: .25rem 0 auto;
-            writing-mode: vertical-rl; /* 设置竖排 */
-            transform: rotate(-90deg); /* 确保文字竖排时正向显示 */
-            text-align: right; /* 右对齐 */
+            writing-mode: vertical-rl;
+            transform: rotate(-90deg);
+            text-align: right;
         }
 
-        /* 为每张卡片添加不同的背景色和标题 */
         .card-1 {
-            background-color: #f3cc23; /* 第一张卡片背景颜色 */
+            background-color: #f3cc23;
         }
 
         .card-2 {
-            background-color: #181c1f; /* 第二张卡片背景颜色 */
+            background-color: #181c1f;
         }
 
         .card-3 {
-            background-color: #8ecab5; /* 第三张卡片背景颜色 */
+            background-color: #8ecab5;
         }
 
         .card-4 {
-            background-color: #666666; /* 第四张卡片背景颜色 */
+            background-color: #666666;
         }
 
         .card-body {
@@ -93,19 +138,30 @@
 
         .question {
             font-weight: bold;
-            font-size: 1.3rem; /* 加大字号 */
-            margin-bottom: 0.5rem; /* 添加底部间距 */
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
         .answer {
             margin-top: 0.5rem;
             font-size: 1rem;
         }
-
     </style>
     <title>Scrollable Cards</title>
 </head>
 <body>
+    <!-- New navigation bar with home link -->
+    <div class="nav-bar">
+        <a href="/" class="logo"> <!-- Added link to homepage -->
+            <div class="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            <div class="logo-text">BINIFY</div>
+        </a>
+    </div>
+
     <div class="container">
         <h1>Learn More</h1>
         <h2>4 tasks</h2>
@@ -202,16 +258,14 @@
 
         function centerCard(card) {
             const cardGrid = document.getElementById("card-grid");
-            const cardOffset = card.offsetLeft; // 获取卡片相对于父容器的位置
-            const cardWidth = card.offsetWidth; // 获取卡片的宽度
+            const cardOffset = card.offsetLeft;
+            const cardWidth = card.offsetWidth;
 
-            // 计算偏移量，使卡片居中
             const centerPosition = cardOffset - (cardGrid.offsetWidth / 2) + (cardWidth / 2);
             
-            // 滚动到卡片居中的位置
             cardGrid.scrollTo({
                 left: centerPosition,
-                behavior: 'smooth' // 平滑滚动
+                behavior: 'smooth'
             });
         }
     </script>

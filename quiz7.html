@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sites Design</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* 进度条 + "1/7" 固定在页面顶部 */
+        .progress-container {
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            text-align: center;
+        }
+
+        .line-container {
+            width: 75%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .line-merged, .line-yellow {
+            height: 8px;
+            border-radius: 4px;
+            position: absolute;
+            left: 0;
+        }
+
+        .line-merged {
+            background-color: lightgray;
+            width: 100%;
+        }
+
+        .line-yellow {
+            background-color: #D4B236;
+            width: 14.28%;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: black;
+            margin-top: 15px;
+        }
+
+        .container {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            top: -40px;
+        }
+
+        .subtitle {
+            font-size: 28px; /* 增大两号(原24px→28px) */
+            font-weight: 700;
+            color: black;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .question-box {
+            background-color: #ECECEC;
+            padding: 50px 30px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 25px; /* 增大按钮间距(原15px→25px) */
+        }
+
+        .button {
+            padding: 15px 0;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 500; /* 字体变细(原bold→500) */
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .btn-yes, .btn-no {
+            background-color: black;
+            color: white;
+        }
+
+        .btn-not-sure {
+            background-color: #E6E4E3;
+            color: black;
+        }
+
+        .button.clicked {
+            background-color: yellow !important;
+            color: black !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部进度条和 1/7 -->
+    <div class="progress-container">
+        <div class="line-container">
+            <div class="line-merged"></div>
+            <div class="line-yellow"></div>
+        </div>
+        <div class="title">1/7</div>
+    </div>
+
+    <div class="container">
+        <div class="subtitle">Questions</div>
+
+        <div class="question-box">Is it broken or dirty and not recyclable (e.g., used tissue, broken ceramics)?</div>
+
+        <div class="button-container">
+            <button class="button btn-yes" onclick="changeColor(this)">Yes</button>
+            <button class="button btn-no" onclick="changeColor(this)">No</button>
+            <button class="button btn-not-sure" onclick="changeColor(this)">Not Sure</button>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(button) {
+            button.classList.add('clicked');
+            setTimeout(() => {
+                button.classList.remove('clicked');
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>

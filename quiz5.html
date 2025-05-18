@@ -17,7 +17,6 @@
             height: 100vh;
         }
 
-        /* 进度条 + "1/7" 固定在页面顶部 */
         .progress-container {
             width: 100%;
             position: absolute;
@@ -67,7 +66,7 @@
         }
 
         .subtitle {
-            font-size: 28px; /* 增大两号(原24px→28px) */
+            font-size: 28px;
             font-weight: 700;
             color: black;
             text-align: left;
@@ -92,14 +91,14 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            gap: 25px; /* 增大按钮间距(原15px→25px) */
+            gap: 25px;
         }
 
         .button {
             padding: 15px 0;
             border-radius: 50px;
             font-size: 20px;
-            font-weight: 500; /* 字体变细(原bold→500) */
+            font-weight: 500;
             border: none;
             cursor: pointer;
             width: 100%;
@@ -126,7 +125,6 @@
 </head>
 <body>
 
-    <!-- 顶部进度条和 1/7 -->
     <div class="progress-container">
         <div class="line-container">
             <div class="line-merged"></div>
@@ -141,17 +139,22 @@
         <div class="question-box">Is it clothing, shoes, or fabric materials?</div>
 
         <div class="button-container">
-            <button class="button btn-yes" onclick="changeColor(this)">Yes</button>
-            <button class="button btn-no" onclick="changeColor(this)">No</button>
-            <button class="button btn-not-sure" onclick="changeColor(this)">Not Sure</button>
+            <button class="button btn-yes" onclick="changeColor(this, 'yes')">Yes</button>
+            <button class="button btn-no" onclick="changeColor(this, 'no')">No</button>
+            <button class="button btn-not-sure" onclick="changeColor(this, 'not-sure')">Not Sure</button>
         </div>
     </div>
 
     <script>
-        function changeColor(button) {
+        function changeColor(button, answer) {
             button.classList.add('clicked');
             setTimeout(() => {
                 button.classList.remove('clicked');
+                if (answer === 'yes') {
+                    window.location.href = 'recycle bin.html';
+                } else {
+                    window.location.href = 'quiz6.html';
+                }
             }, 500);
         }
     </script>

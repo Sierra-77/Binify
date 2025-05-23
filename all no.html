@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BINIFY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Neucha&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: white;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Neucha', cursive;
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            position: absolute;
+            top: 25px;
+            left: 20px;
+        }
+
+        .container {
+            background: rgba(255, 231, 231, 0.9);
+            border-radius: 20px;
+            padding: 30px 25px;
+            margin-top: 70px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .sorry-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .sorry-text {
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .remember {
+            margin: 25px 0 15px;
+            font-weight: 600;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .waste-list {
+            list-style: none;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+            color: #444;
+        }
+
+        .waste-list li {
+            margin-bottom: 12px;
+            padding-left: 1.2em;
+            text-indent: -1.2em;
+        }
+
+        .retry-btn {
+            width: calc(100% - 40px);
+            height: 50px;
+            background: white;
+            border: 2px solid #FFE464;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #333;
+            position: fixed;
+            bottom: 25px;
+            left: 20px;
+            transition: all 0.2s;
+        }
+
+        .retry-btn:active {
+            background: #FFF5CC;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">BINIFY</a>
+    
+    <div class="container">
+        <h1 class="sorry-title">Sorry！</h1>
+        <p class="sorry-text">We couldn't identify the proper category for this item.</p>
+    </div>
+
+    <div class="content">
+        <h2 class="remember">Remember:</h2>
+        <ul class="waste-list">
+            <li>· Recyclables: Bottles, cans, paper, metals, clean plastics</li>
+            <li>· Hazardous Waste: Batteries, bulbs, expired meds, paint cans</li>
+            <li>· Kitchen Waste: Food scraps, fruit peels, tea leaves, eggshells</li>
+            <li>· Other Waste: Used tissues, diapers, plastic bags, disposable tableware</li>
+        </ul>
+    </div>
+
+    <button class="retry-btn" onclick="location.href='quiz1.html'">Retry</button>
+</body>
+</html>

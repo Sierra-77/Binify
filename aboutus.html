@@ -32,6 +32,14 @@
         flex-direction: column;
         justify-content: space-between;
         overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-decoration: none;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     @media (max-width: 768px) {
@@ -74,36 +82,36 @@
     </div>
 
     <div class="card-grid">
-        <div class="card">
+        <a href="feature.html" class="card">
             <div>
                 <h3 style="color: #131112; margin: 0 0 12px 0;">Feature</h3>
                 <p style="color: #838384; margin: 0; font-size: 0.9em;">Discover our core functionalities...</p>
             </div>
             <div class="card-bottom-line" style="background: #FFE464;"></div>
-        </div>
+        </a>
 
-        <div class="card">
+        <a href="collaboration.html" class="card">
             <div>
                 <h3 style="color: #131112; margin: 0 0 12px 0;">Collaboration</h3>
                 <p style="color: #838384; margin: 0; font-size: 0.9em;">Teamwork made simple and efficient...</p>
             </div>
             <div class="card-bottom-line" style="background: #838384;"></div>
-        </div>
+        </a>
 
-        <div class="card">
+        <a href="support.html" class="card">
             <div>
                 <h3 style="color: #131112; margin: 0 0 12px 0;">Support</h3>
                 <p style="color: #838384; margin: 0; font-size: 0.9em;">24/7 assistance whenever you need...</p>
             </div>
             <div class="card-bottom-line" style="background: #131112;"></div>
-        </div>
+        </a>
 
-        <div class="card">
+        <a href="resources.html" class="card">
             <div>
                 <h3 style="color: #131112; margin: 0 0 12px 0;">Resources</h3>
                 <p style="color: #838384; margin: 0; font-size: 0.9em;">Essential tools and documentation...</p>
             </div>
             <div class="card-bottom-line" style="background: linear-gradient(90deg, #FFE464 0%, #838384 100%);"></div>
-        </div>
+        </a>
     </div>
 </div>

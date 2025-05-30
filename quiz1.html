@@ -1,162 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sites Design</title>
-    <style>
-        body {
-            background-color: white;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Sites Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Neucha&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: white;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 80px; /* 留出空间避免被横幅遮挡 */
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
 
-        .progress-container {
-            width: 100%;
-            position: absolute;
-            top: 10px;
-            left: 0;
-            text-align: center;
-        }
+    header {
+      width: 100%;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 20px 0;
+      text-align: center;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
 
-        .line-container {
-            width: 75%;
-            margin: 0 auto;
-            position: relative;
-        }
+    header h1 {
+      font-family: 'Neucha', cursive;
+      font-size: 36px;
+      margin: 0;
+      color: black;
+    }
 
-        .line-merged, .line-yellow {
-            height: 8px;
-            border-radius: 4px;
-            position: absolute;
-            left: 0;
-        }
+    .progress-container {
+      width: 100%;
+      position: relative;
+      text-align: center;
+    }
 
-        .line-merged {
-            background-color: lightgray;
-            width: 100%;
-        }
+    .line-container {
+      width: 75%;
+      margin: 0 auto;
+      position: relative;
+    }
 
-        .line-yellow {
-            background-color: #D4B236;
-            width: 14.28%;
-            z-index: 1;
-        }
+    .line-merged, .line-yellow {
+      height: 8px;
+      border-radius: 4px;
+      position: absolute;
+      left: 0;
+    }
 
-        .title {
-            font-size: 18px;
-            font-weight: 500;
-            color: black;
-            margin-top: 15px;
-        }
+    .line-merged {
+      background-color: lightgray;
+      width: 100%;
+    }
 
-        .container {
-            width: 75%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            top: -40px;
-        }
+    .line-yellow {
+      background-color: #D4B236;
+      width: 14.28%;
+      z-index: 1;
+    }
 
-        .subtitle {
-            font-size: 28px;
-            font-weight: 700;
-            color: black;
-            text-align: left;
-            width: 100%;
-            margin-bottom: 40px;
-        }
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+      margin-top: 15px;
+    }
 
-        .question-box {
-            background-color: #ECECEC;
-            padding: 50px 30px;
-            border-radius: 12px;
-            font-size: 20px;
-            font-weight: 500;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 40px;
-            box-sizing: border-box;
-        }
+    .container {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
 
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            gap: 25px;
-        }
+    .subtitle {
+      font-size: 28px;
+      font-weight: 700;
+      color: black;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
-        .button {
-            padding: 15px 0;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
-            transition: background-color 0.3s ease-in-out;
-            box-sizing: border-box;
-        }
+    .question-box {
+      background-color: #ECECEC;
+      padding: 50px 30px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 500;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+      box-sizing: border-box;
+    }
 
-        .btn-yes, .btn-no {
-            background-color: black;
-            color: white;
-        }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 25px;
+    }
 
-        .btn-not-sure {
-            background-color: #E6E4E3;
-            color: black;
-        }
+    .button {
+      padding: 15px 0;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: background-color 0.3s ease-in-out;
+      box-sizing: border-box;
+    }
 
-        .button.clicked {
-            background-color: yellow !important;
-            color: black !important;
-        }
-    </style>
+    .btn-yes, .btn-no {
+      background-color: black;
+      color: white;
+    }
+
+    .btn-not-sure {
+      background-color: #E6E4E3;
+      color: black;
+    }
+
+    .button.clicked {
+      background-color: yellow !important;
+      color: black !important;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="progress-container">
-        <div class="line-container">
-            <div class="line-merged"></div>
-            <div class="line-yellow"></div>
-        </div>
-        <div class="title">1/7</div>
+  <header>
+    <h1>BINIFY</h1>
+  </header>
+
+  <div class="progress-container">
+    <div class="line-container">
+      <div class="line-merged"></div>
+      <div class="line-yellow"></div>
     </div>
+    <div class="title">1/7</div>
+  </div>
 
-    <div class="container">
-        <div class="subtitle">Questions</div>
+  <div class="container">
+    <div class="subtitle">Questions</div>
 
-        <div class="question-box">Does the item have food residue?</div>
+    <div class="question-box">Does the item have food residue?</div>
 
-        <div class="button-container">
-            <button class="button btn-yes" onclick="handleClick(this)" data-action="food bin.html">Yes</button>
-            <button class="button btn-no" onclick="handleClick(this)" data-action="quiz2.html">No</button>
-            <button class="button btn-not-sure" onclick="handleClick(this)" data-action="quiz2.html">Not Sure</button>
-        </div>
+    <div class="button-container">
+      <button class="button btn-yes" onclick="handleClick(this)" data-action="food bin.html">Yes</button>
+      <button class="button btn-no" onclick="handleClick(this)" data-action="quiz2.html">No</button>
+      <button class="button btn-not-sure" onclick="handleClick(this)" data-action="quiz2.html">Not Sure</button>
     </div>
+  </div>
 
-    <script>
-        function handleClick(button) {
-            button.classList.add('clicked');
+  <script>
+    function handleClick(button) {
+      button.classList.add('clicked');
 
-            setTimeout(() => {
-                button.classList.remove('clicked');
-            }, 500);
+      setTimeout(() => {
+        button.classList.remove('clicked');
+      }, 500);
 
-            const targetUrl = button.getAttribute('data-action');
-            window.location.href = targetUrl;
-        }
-    </script>
+      const targetUrl = button.getAttribute('data-action');
+      window.location.href = targetUrl;
+    }
+  </script>
 
 </body>
 </html>

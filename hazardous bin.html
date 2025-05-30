@@ -1,135 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waste Disposal Information</title>
-    <style>
-        /* 全局样式 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #a95a4d;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waste Disposal Information</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #a95a4d;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
 
-        /* 顶部图片 */
-        .top-image {
-            position: absolute;
-            top: 3%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            z-index: 1;
-        }
+    /* 顶部导航栏 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      z-index: 999;
+      box-sizing: border-box;
+      backdrop-filter: blur(8px);
+    }
 
-        /* 主容器 */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            width: 100%;
-            box-sizing: border-box;
-            padding-top: 32vh;
-        }
+    /* 左侧 binify logo */
+    .header .logo {
+      display: flex;
+      align-items: center;
+    }
 
-        /* 内容框 */
-        .content-box {
-            background-color: white;
-            border-radius: 40px;
-            padding: 25px;
-            width: 100%;
-            max-width: 900px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            margin-top: 7vh;
-        }
+    .header .logo img {
+      height: 42px;
+      margin-right: 10px;
+    }
 
-        /* 文本容器 */
-        .text-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .header .logo span {
+      font-weight: 700;
+      font-size: 20px;
+      color: #a95a4d;
+    }
 
-        /* 文本样式 */
-        .line {
-            color: #777777;
-            font-weight: normal;
-            margin: 10px 0;
-            width: 100%;
-            text-align: left;
-            padding-left: 10px;
-            box-sizing: border-box;
-        }
+    /* 右侧导航链接 */
+    .header .nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
-        .bold {
-            color: #000000;
-            font-weight: bold;
-            font-size: 20px;
-            margin: 5px 0 15px;
-        }
+    .header .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 15px;
+    }
 
-        .line:nth-child(n+3) {
-            font-size: 13px;
-            position: relative;
-            padding-left: 25px;
-        }
+    .top-image {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      z-index: 1;
+    }
 
-        .line:nth-child(n+3):before {
-            content: "·";
-            color: black;
-            position: absolute;
-            left: 10px;
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+      padding-top: 32vh;
+    }
 
-        .highlight {
-            color: #a95a4d;
-            margin: 0 2px;
-        }
+    .content-box {
+      background-color: white;
+      border-radius: 40px;
+      padding: 25px;
+      width: 100%;
+      max-width: 900px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      margin-top: 7vh;
+    }
 
-        /* Learn More 链接样式 */
-        .learn-more {
-            background-color: #FFE464;
-            color: black;
-            border: none;
-            padding: 14px 0;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            display: block;
-            margin: 25px auto 10px;
-            width: 100%;
-            max-width: 100%;
-            text-align: center;
-            text-decoration: none; /* 去除下划线 */
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    .text-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .line {
+      color: #777777;
+      font-weight: normal;
+      margin: 10px 0;
+      width: 100%;
+      text-align: left;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+
+    .bold {
+      color: #000000;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 5px 0 15px;
+    }
+
+    .line:nth-child(n+3) {
+      font-size: 13px;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .line:nth-child(n+3):before {
+      content: "·";
+      color: black;
+      position: absolute;
+      left: 10px;
+    }
+
+    .highlight {
+      color: #a95a4d;
+      margin: 0 2px;
+    }
+
+    .learn-more {
+      background-color: #FFE464;
+      color: black;
+      border: none;
+      padding: 14px 0;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin: 25px auto 10px;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部图片 -->
-    <img src="https://i.imgur.com/3eXPniT.png" alt="Waste Icon" class="top-image">
-
-    <div class="container">
-        <div class="content-box">
-            <div class="text-content">
-                <p class="line">The item you scanned is</p>
-                <p class="line bold">Hazardous Waste</p>
-                <p class="line">One button battery can pollute <span class="highlight">600,000 liters of water</span></p>
-                <p class="line">Mercury from a fluorescent lamp can contaminate <span class="highlight">30 cubic meters of air</span></p>
-                
-                <!-- 跳转链接按钮 -->
-                <a href="learn more.html" class="learn-more">Learn more</a>
-            </div>
-        </div>
+  <!-- 顶部 header -->
+  <div class="header">
+    <div class="logo">
+      <img src="https://i.imgur.com/9Q5f3Wv.png" alt="binify logo">
+      <span>binify</span>
     </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="scan.html">Scan</a>
+      <a href="learn more.html">Learn</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+  </div>
+
+  <!-- 顶部图片 -->
+  <img src="https://i.imgur.com/3eXPniT.png" alt="Waste Icon" class="top-image">
+
+  <!-- 主体内容 -->
+  <div class="container">
+    <div class="content-box">
+      <div class="text-content">
+        <p class="line">The item you scanned is</p>
+        <p class="line bold">Hazardous Waste</p>
+        <p class="line">One button battery can pollute <span class="highlight">600,000 liters of water</span></p>
+        <p class="line">Mercury from a fluorescent lamp can contaminate <span class="highlight">30 cubic meters of air</span></p>
+        <a href="learn more.html" class="learn-more">Learn more</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

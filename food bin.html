@@ -1,142 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waste Disposal Information</title>
-    <style>
-        /* 全局样式 */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom, #feda4a 0%, #feda4a 50vh, #ffffff 50vh, #ffffff 100%);
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waste Disposal Information</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #feda4a 0%, #feda4a 50vh, #ffffff 50vh, #ffffff 100%);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        /* 顶部图片 */
-        .top-image {
-            position: absolute;
-            top: 3%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            z-index: 1;
-        }
+    /* 顶部导航栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
 
-        /* 主容器 */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            width: 100%;
-            box-sizing: border-box;
-            padding-top: 32vh;
-        }
+    .header-left {
+      font-weight: 600;
+      font-size: 18px;
+      color: #131112;
+    }
 
-        /* 内容框 */
-        .content-box {
-            background-color: white;
-            border-radius: 40px;
-            padding: 25px;
-            width: 100%;
-            max-width: 900px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            margin-top: 7vh;
-        }
+    .header-nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #131112;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-        /* 文本容器 - 确保内容居中 */
-        .text-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .header-nav a:hover {
+      color: #D4B236;
+    }
 
-        /* 文本样式 */
-        .line {
-            color: #777777;
-            font-weight: normal;
-            margin: 10px 0;
-            width: 100%;
-            text-align: left;
-            padding-left: 10px;
-            box-sizing: border-box;
-        }
+    .top-image {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      z-index: 1;
+    }
 
-        .bold {
-            color: #000000;
-            font-weight: bold;
-            font-size: 20px;
-            margin: 5px 0 15px;
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      box-sizing: border-box;
+      padding-top: 32vh;
+    }
 
-        /* 后四行小字号 */
-        .line:nth-child(n+3) {
-            font-size: 13px;
-            position: relative;
-            padding-left: 25px;
-        }
+    .content-box {
+      background-color: white;
+      border-radius: 40px;
+      padding: 25px;
+      width: 100%;
+      max-width: 900px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      margin-top: 7vh;
+    }
 
-        /* 项目符号 */
-        .line:nth-child(n+3):before {
-            content: "·";
-            color: black;
-            position: absolute;
-            left: 10px;
-        }
+    .text-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* 特殊文字颜色 */
-        .highlight {
-            color: #D4B236;
-            margin: 0 2px;
-        }
+    .line {
+      color: #777777;
+      font-weight: normal;
+      margin: 10px 0;
+      width: 100%;
+      text-align: left;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
 
-        /* 按钮 - 确保完美居中 */
-        .learn-more {
-            background-color: #FFE464;
-            color: black;
-            border: none;
-            padding: 14px 0;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            display: block;
-            margin: 25px auto 10px;
-            width: 100%;
-            max-width: 100%;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
+    .bold {
+      color: #000000;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 5px 0 15px;
+    }
 
-        .learn-more:hover {
-            background-color: #f5d73a;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    .line:nth-child(n+3) {
+      font-size: 13px;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .line:nth-child(n+3):before {
+      content: "·";
+      color: black;
+      position: absolute;
+      left: 10px;
+    }
+
+    .highlight {
+      color: #D4B236;
+      margin: 0 2px;
+    }
+
+    .learn-more {
+      background-color: #FFE464;
+      color: black;
+      border: none;
+      padding: 14px 0;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin: 25px auto 10px;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .learn-more:hover {
+      background-color: #f5d73a;
+    }
+
+    /* Binify 按钮 */
+    .binify-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #FFE464;
+      color: #131112;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 32px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 99;
+      transition: background-color 0.3s ease;
+    }
+
+    .binify-button:hover {
+      background-color: #f5d73a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .header-nav a {
+        margin-left: 12px;
+        font-size: 14px;
+      }
+
+      .header-left {
+        font-size: 16px;
+      }
+
+      .binify-button {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- 顶部图片 -->
-    <img src="https://i.imgur.com/G5raJ20.jpeg" alt="Waste Icon" class="top-image">
+  <!-- Header 导航 -->
+  <header>
+    <div class="header-left">Binify</div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="scan.html">Scan</a>
+      <a href="learn more.html">Learn</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <div class="content-box">
-            <div class="text-content">
-                <p class="line">The item you scanned is</p>
-                <p class="line bold">Food/Wet Waste</p>
-                <p class="line">Food waste makes up <span class="highlight">30-50%</span> of city waste</p>
-                <p class="line">Composting can reduce landfill waste by over <span class="highlight">50%</span></p>
-                <p class="line"><span class="highlight">Example:</span> Food scraps, leftovers</p>
-                <p class="line"><span class="highlight">Disposal:</span> Composting, recycling</p>
-                <button class="learn-more" onclick="window.location.href='learn more.html'">Learn more</button>
-            </div>
-        </div>
+  <!-- 顶部图标 -->
+  <img src="https://i.imgur.com/G5raJ20.jpeg" alt="Waste Icon" class="top-image" />
+
+  <!-- 主内容 -->
+  <div class="container">
+    <div class="content-box">
+      <div class="text-content">
+        <p class="line">The item you scanned is</p>
+        <p class="line bold">Food/Wet Waste</p>
+        <p class="line">Food waste makes up <span class="highlight">30-50%</span> of city waste</p>
+        <p class="line">Composting can reduce landfill waste by over <span class="highlight">50%</span></p>
+        <p class="line"><span class="highlight">Example:</span> Food scraps, leftovers</p>
+        <p class="line"><span class="highlight">Disposal:</span> Composting, recycling</p>
+        <button class="learn-more" onclick="window.location.href='learn more.html'">Learn more</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Binify 按钮 -->
+  <button class="binify-button" onclick="window.location.href='scan.html'">Binify</button>
 </body>
 </html>

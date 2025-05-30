@@ -1,273 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* New navigation bar styles */
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3rem;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            box-sizing: border-box;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            text-decoration: none;
-        }
-        
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 1rem;
-            width: 1rem;
-            margin-right: 0.5rem;
-        }
-        
-        .hamburger-line {
-            height: 0.15rem;
-            width: 100%;
-            background-color: black;
-            border-radius: 0.075rem;
-        }
-        
-        .logo-text {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: black;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* 通用样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background: #EFEFEF;
-            margin-top: 3rem;
-            font-family: 'Inter', sans-serif;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #EFEFEF;
+      margin: 0;
+      padding-top: 5rem;
+    }
 
-        h1 {
-            color: #333;
-            font-size: 26px;
-            text-align: center;
-        }
+    /* 顶部导航栏 */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3rem;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-        h2 {
-            color: #333;
-            font-size: 20px;
-            text-align: center;
-            margin-top: 10px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      text-decoration: none;
+    }
 
-        .scrollable-card-grid {
-            scrollbar-color: #201c29;
-            scrollbar-width: 10px;
-            scrollbar-gutter: always;
-            padding: 3rem;
-            display: flex;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-        }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
 
-        .scrollable-card {
-            min-width: 240px;
-            min-height: 350px;
-            padding: 1.5rem;
-            border-radius: 16px;
-            background: #17141d;
-            box-shadow: 0 9px 15px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            transition: 0.2s;
-            margin: 0;
-            scroll-snap-align: center;
-            cursor: pointer;
-        }
+    .hamburger-line {
+      height: 0.15rem;
+      width: 100%;
+      background-color: black;
+      border-radius: 0.075rem;
+    }
 
-        .scrollable-card:hover {
-            transform: translateY(-1rem);
-            cursor: pointer;
-        }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1rem;
+      color: black;
+    }
 
-        .card-header h2 {
-            color: #fff;
-            font-size: 20px;
-            margin: .25rem 0 auto;
-            writing-mode: vertical-rl;
-            transform: rotate(-90deg);
-            text-align: right;
-        }
+    /* Header 样式 */
+    header {
+      text-align: center;
+      padding: 1rem;
+    }
 
-        .card-1 {
-            background-color: #f3cc23;
-        }
+    header h1 {
+      font-size: 2rem;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
 
-        .card-2 {
-            background-color: #181c1f;
-        }
+    header h2 {
+      font-size: 1rem;
+      color: #555;
+    }
 
-        .card-3 {
-            background-color: #8ecab5;
-        }
+    /* 卡片布局 */
+    .scrollable-card-grid {
+      scrollbar-color: #201c29;
+      scrollbar-width: 10px;
+      scrollbar-gutter: always;
+      padding: 3rem;
+      display: flex;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
 
-        .card-4 {
-            background-color: #666666;
-        }
+    .scrollable-card {
+      min-width: 240px;
+      min-height: 350px;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #17141d;
+      box-shadow: 0 9px 15px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s;
+      margin: 0;
+      scroll-snap-align: center;
+      cursor: pointer;
+    }
 
-        .card-body {
-            display: none;
-            margin-top: 1rem;
-            color: #fff;
-        }
+    .scrollable-card:hover {
+      transform: translateY(-1rem);
+    }
 
-        .active .card-body {
-            display: block;
-        }
+    .card-header h2 {
+      color: #fff;
+      font-size: 20px;
+      margin: .25rem 0 auto;
+      writing-mode: vertical-rl;
+      transform: rotate(-90deg);
+      text-align: right;
+    }
 
-        .question {
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
+    .card-body {
+      display: none;
+      margin-top: 1rem;
+      color: #fff;
+    }
 
-        .answer {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-        }
-    </style>
-    <title>Scrollable Cards</title>
+    .active .card-body {
+      display: block;
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .answer {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .card-1 {
+      background-color: #f3cc23;
+    }
+
+    .card-2 {
+      background-color: #181c1f;
+    }
+
+    .card-3 {
+      background-color: #8ecab5;
+    }
+
+    .card-4 {
+      background-color: #666666;
+    }
+  </style>
+  <title>BINIFY - Learn More</title>
 </head>
 <body>
-    <!-- New navigation bar with home link -->
-    <div class="nav-bar">
-        <a href="index.html">跳转到另一个页面</a>
-            <div class="hamburger">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </div>
-            <div class="logo-text">BINIFY</div>
-        </a>
-    </div>
+  <!-- 导航栏 -->
+  <div class="nav-bar">
+    <a class="logo" href="index.html">
+      <div class="hamburger">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </div>
+      <div class="logo-text">BINIFY</div>
+    </a>
+  </div>
 
-    <div class="container">
-        <h1>Learn More</h1>
-        <h2>4 tasks</h2>
-        <div class="scrollable-card-grid" id="card-grid">
-            <!-- Card 1 -->
-            <div class="scrollable-card card-1" onclick="toggleCard(this, 'faq')">
-                <div class="card-header">
-                    <h2>FAQ</h2>
-                </div>
-                <div class="card-body" id="faq">
-                    <p class="question">How should composite materials be classified?</p>
-                    <p class="answer">Composite materials, like food packaging bags and paper-plastic composites, are difficult to recycle. Check for recycling symbols on the packaging. Non-recyclable items should be disposed of as other waste.</p>
-                    <p class="question">Does improper sorting affect recycling?</p>
-                    <p class="answer">Yes. Incorrect sorting can contaminate recyclables and make them unusable. For example, mixing plastic with food waste can prevent recycling.</p>
-                </div>
-            </div>
+  <!-- 页头 -->
+  <header>
+    <h1>BINIFY</h1>
+    <h2>Learn More - 垃圾分类知识拓展</h2>
+  </header>
 
-            <!-- Card 2 -->
-            <div class="scrollable-card card-2" onclick="toggleCard(this, 'mdf')">
-                <div class="card-header">
-                    <h2>MDF</h2>
-                </div>
-                <div class="card-body" id="mdf">
-                    <p class="question">Misconception: All plastics are recyclable.</p>
-                    <p class="answer">Plastic containers with oil stains or food residue should be cleaned before recycling, or disposed of as other waste.</p>
-                    <p class="question">Misconception: Wet wipes can go in the recycling bin.</p>
-                    <p class="answer">Wet wipes often contain chemicals and materials that aren't recyclable, so they should be disposed of as other waste.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="scrollable-card card-3" onclick="toggleCard(this, 'cfp')">
-                <div class="card-header">
-                    <h2>CFP</h2>
-                </div>
-                <div class="card-body" id="cfp">
-                    <p class="question">Standard compact car: 0.25 kg of CO₂ per kilometer.</p>
-                    <p class="answer">The carbon footprint of a standard compact car is 0.25 kg CO₂ per kilometer driven.</p>
-                    <p class="question">Natural gas heating: approximately 2.5 tons of CO₂ per year.</p>
-                    <p class="answer">Using natural gas for heating typically results in around 2.5 tons of CO₂ emissions per year.</p>
-                    <p class="question">Per kilogram of beef: 27 kg of CO₂ equivalent.</p>
-                    <p class="answer">Producing 1 kilogram of beef results in approximately 27 kg of CO₂ equivalent emissions.</p>
-                    <p class="question">Producing 1 ton of cement: 0.8 tons of CO₂.</p>
-                    <p class="answer">Manufacturing 1 ton of cement produces about 0.8 tons of CO₂ emissions.</p>
-                    <p class="question">Manufacturing one smartphone: 55 kg of CO₂.</p>
-                    <p class="answer">The production of a smartphone results in about 55 kg of CO₂ emissions.</p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="scrollable-card card-4" onclick="toggleCard(this, 'diy')">
-                <div class="card-header">
-                    <h2>DIY</h2>
-                </div>
-                <div class="card-body" id="diy">
-                    <p class="question">Glass Bottles</p>
-                    <p class="answer">Vases: Clean old glass bottles and use them as decorative vases for the home.</p>
-                    <p class="answer">Lighting: Use glass bottles to create vintage-style pendant lights or table lamps, adding ambiance to the living space.</p>
-                    <p class="answer">Storage Jars: Glass bottles can be used to store food, dry goods, spices, etc., making them both beautiful and practical.</p>
-
-                    <p class="question">Old Newspapers</p>
-                    <p class="answer">Paper Craft: Roll newspapers into paper flowers, rings, or chains to create handmade crafts.</p>
-                    <p class="answer">Papier-Mâché Molds: Use old newspapers to make paper pulp, then mold it into usable items like paper bowls and plates.</p>
-                    <p class="answer">Doormats: Weave multiple sheets of newspaper to create an eco-friendly doormat or cushion.</p>
-                </div>
-            </div>
+  <div class="container">
+    <div class="scrollable-card-grid" id="card-grid">
+      <!-- FAQ 卡片 -->
+      <div class="scrollable-card card-1" onclick="toggleCard(this, 'faq')">
+        <div class="card-header"><h2>FAQ</h2></div>
+        <div class="card-body" id="faq">
+          <p class="question">How should composite materials be classified?</p>
+          <p class="answer">Composite materials, like food packaging bags and paper-plastic composites, are difficult to recycle. Check for recycling symbols on the packaging. Non-recyclable items should be disposed of as other waste.</p>
+          <p class="question">Does improper sorting affect recycling?</p>
+          <p class="answer">Yes. Incorrect sorting can contaminate recyclables and make them unusable. For example, mixing plastic with food waste can prevent recycling.</p>
         </div>
+      </div>
+
+      <!-- MDF 卡片 -->
+      <div class="scrollable-card card-2" onclick="toggleCard(this, 'mdf')">
+        <div class="card-header"><h2>MDF</h2></div>
+        <div class="card-body" id="mdf">
+          <p class="question">Misconception: All plastics are recyclable.</p>
+          <p class="answer">Plastic containers with oil stains or food residue should be cleaned before recycling, or disposed of as other waste.</p>
+          <p class="question">Misconception: Wet wipes can go in the recycling bin.</p>
+          <p class="answer">Wet wipes often contain chemicals and materials that aren't recyclable, so they should be disposed of as other waste.</p>
+        </div>
+      </div>
+
+      <!-- CFP 卡片 -->
+      <div class="scrollable-card card-3" onclick="toggleCard(this, 'cfp')">
+        <div class="card-header"><h2>CFP</h2></div>
+        <div class="card-body" id="cfp">
+          <p class="question">Standard compact car: 0.25 kg of CO₂ per kilometer.</p>
+          <p class="answer">The carbon footprint of a standard compact car is 0.25 kg CO₂ per kilometer driven.</p>
+          <p class="question">Natural gas heating: approximately 2.5 tons of CO₂ per year.</p>
+          <p class="answer">Using natural gas for heating typically results in around 2.5 tons of CO₂ emissions per year.</p>
+          <p class="question">Per kilogram of beef: 27 kg of CO₂ equivalent.</p>
+          <p class="answer">Producing 1 kilogram of beef results in approximately 27 kg of CO₂ equivalent emissions.</p>
+          <p class="question">Producing 1 ton of cement: 0.8 tons of CO₂.</p>
+          <p class="answer">Manufacturing 1 ton of cement produces about 0.8 tons of CO₂ emissions.</p>
+          <p class="question">Manufacturing one smartphone: 55 kg of CO₂.</p>
+          <p class="answer">The production of a smartphone results in about 55 kg of CO₂ emissions.</p>
+        </div>
+      </div>
+
+      <!-- DIY 卡片 -->
+      <div class="scrollable-card card-4" onclick="toggleCard(this, 'diy')">
+        <div class="card-header"><h2>DIY</h2></div>
+        <div class="card-body" id="diy">
+          <p class="question">Glass Bottles</p>
+          <p class="answer">Vases: Clean old glass bottles and use them as decorative vases for the home.</p>
+          <p class="answer">Lighting: Use glass bottles to create vintage-style pendant lights or table lamps, adding ambiance to the living space.</p>
+          <p class="answer">Storage Jars: Glass bottles can be used to store food, dry goods, spices, etc., making them both beautiful and practical.</p>
+
+          <p class="question">Old Newspapers</p>
+          <p class="answer">Paper Craft: Roll newspapers into paper flowers, rings, or chains to create handmade crafts.</p>
+          <p class="answer">Papier-Mâché Molds: Use old newspapers to make paper pulp, then mold it into usable items like paper bowls and plates.</p>
+          <p class="answer">Doormats: Weave multiple sheets of newspaper to create an eco-friendly doormat or cushion.</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function toggleCard(card, id) {
-            // Hide all card content
-            const allCards = document.querySelectorAll('.scrollable-card');
-            allCards.forEach(function(c) {
-                c.classList.remove('active');
-            });
+  <script>
+    function toggleCard(card, id) {
+      const allCards = document.querySelectorAll('.scrollable-card');
+      allCards.forEach(c => c.classList.remove('active'));
+      const allContents = document.querySelectorAll('.card-body');
+      allContents.forEach(content => content.style.display = 'none');
 
-            // Hide all card contents
-            const allContents = document.querySelectorAll('.card-body');
-            allContents.forEach(function(content) {
-                content.style.display = 'none';
-            });
+      card.classList.toggle('active');
+      const content = document.getElementById(id);
+      if (content) {
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      }
 
-            // Show content for the clicked card
-            card.classList.toggle('active');
-            const content = document.getElementById(id);
-            if (content) {
-                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-            }
-
-            // Center the clicked card
-            centerCard(card);
-        }
-
-        function centerCard(card) {
-            const cardGrid = document.getElementById("card-grid");
-            const cardOffset = card.offsetLeft;
-            const cardWidth = card.offsetWidth;
-
-            const centerPosition = cardOffset - (cardGrid.offsetWidth / 2) + (cardWidth / 2);
-            
-            cardGrid.scrollTo({
-                left: centerPosition,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-</body>
-</html>
+      centerCard(car

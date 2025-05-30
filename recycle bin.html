@@ -34,7 +34,7 @@
             height: 100vh;
             width: 100%;
             box-sizing: border-box;
-            padding-top: 32vh; /* 增加 padding-top，使整体下移 */
+            padding-top: 32vh;
         }
 
         /* 内容框 */
@@ -47,10 +47,10 @@
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            margin-top: 7vh; /* 进一步下移圆角矩形 */
+            margin-top: 7vh;
         }
 
-        /* 文本容器 - 确保内容居中 */
+        /* 文本容器 */
         .text-content {
             width: 100%;
             display: flex;
@@ -76,14 +76,12 @@
             margin: 5px 0 15px;
         }
 
-        /* 后四行小字号 */
         .line:nth-child(n+3) {
             font-size: 13px;
             position: relative;
             padding-left: 25px;
         }
 
-        /* 项目符号 */
         .line:nth-child(n+3):before {
             content: "·";
             color: black;
@@ -91,20 +89,18 @@
             left: 10px;
         }
 
-        /* 特殊文字颜色 */
         .highlight {
             color: #7ab295;
             margin: 0 2px;
         }
 
-        /* 按钮 - 确保完美居中 */
+        /* 链接按钮样式 */
         .learn-more {
             background-color: #FFE464;
             color: black;
             border: none;
             padding: 14px 0;
             border-radius: 25px;
-            cursor: pointer;
             font-size: 16px;
             font-weight: 600;
             display: block;
@@ -112,6 +108,7 @@
             width: 100%;
             max-width: 100%;
             text-align: center;
+            text-decoration: none;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -125,10 +122,12 @@
             <div class="text-content">
                 <p class="line">The item you scanned is</p>
                 <p class="line bold">Recyclable Waste</p>
-                <p class="line">Paper decomposes in <span class="highlight">2-6 weeks</span> </p>
+                <p class="line">Paper decomposes in <span class="highlight">2-6 weeks</span></p>
                 <p class="line">Aluminum cans save <span class="highlight">95% of energy</span></p>
-                <p class="line">Glass bottles can be<span class="highlight"> recycled infinitely</span> </p>
-                <button class="learn-more">Learn more</button>
+                <p class="line">Glass bottles can be<span class="highlight"> recycled infinitely</span></p>
+
+                <!-- 修改为链接按钮 -->
+                <a href="learn more.html" class="learn-more">Learn more</a>
             </div>
         </div>
     </div>

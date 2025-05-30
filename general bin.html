@@ -34,7 +34,7 @@
             height: 100vh;
             width: 100%;
             box-sizing: border-box;
-            padding-top: 32vh; /* 增加 padding-top，使整体下移 */
+            padding-top: 32vh;
         }
 
         /* 内容框 */
@@ -47,10 +47,10 @@
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            margin-top: 7vh; /* 进一步下移圆角矩形 */
+            margin-top: 7vh;
         }
 
-        /* 文本容器 - 确保内容居中 */
+        /* 文本容器 */
         .text-content {
             width: 100%;
             display: flex;
@@ -76,14 +76,12 @@
             margin: 5px 0 15px;
         }
 
-        /* 后四行小字号 */
         .line:nth-child(n+3) {
             font-size: 13px;
             position: relative;
             padding-left: 25px;
         }
 
-        /* 项目符号 */
         .line:nth-child(n+3):before {
             content: "·";
             color: black;
@@ -91,13 +89,11 @@
             left: 10px;
         }
 
-        /* 特殊文字颜色 */
         .highlight {
             color: #4594c9;
             margin: 0 2px;
         }
 
-        /* 按钮 - 确保完美居中 */
         .learn-more {
             background-color: #FFE464;
             color: black;
@@ -126,8 +122,8 @@
                 <p class="line">The item you scanned is</p>
                 <p class="line bold">General Waste</p>
                 <p class="line">General waste decomposes at different rates</p>
-                <p class="line">Plastic bags can take  <span class="highlight">10-1000 years </span>to break down</p>
-                <button class="learn-more">Learn more</button>
+                <p class="line">Plastic bags can take <span class="highlight">10-1000 years</span> to break down</p>
+                <button class="learn-more" onclick="window.location.href='learn more.html'">Learn more</button>
             </div>
         </div>
     </div>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Google Sites Design</title>
+    <!-- 引入Neucha字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet" />
     <style>
-        body {
+            body {
             background-color: white;
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -14,15 +16,44 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
+            padding-top: 40px; /* 留出空间避免被 header 遮挡 */
+            min-height: 100vh;
+            box-sizing: border-box;
+            }
+
+            header {
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: none; /* 移除底部边框 */
+            }
+
+            header h1 {
+            font-family: 'Neucha', cursive;
+            font-size: 32px;
+            margin: 0;
+            color: black;
+        }
+        /* 新增的链接样式 */
+            header a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .progress-container {
             width: 100%;
-            position: absolute;
-            top: 10px;
+            position: fixed; /* 固定位置，横幅下方 */
+            top: 56px; /* 横幅高度约46px + 10px间距 */
             left: 0;
             text-align: center;
+            z-index: 999;
         }
 
         .line-container {
@@ -62,7 +93,7 @@
             flex-direction: column;
             align-items: flex-start;
             position: relative;
-            top: -40px;
+            margin-top: 110px; /* 给主体内容足够的顶部空间，避免被固定的横幅和进度条遮挡 */
         }
 
         .subtitle {
@@ -124,6 +155,11 @@
     </style>
 </head>
 <body>
+
+    <!-- 顶部白色横幅 -->
+    <header>
+        <a href="index.html"><h1>BINIFY</h1></a>
+    </header>
 
     <div class="progress-container">
         <div class="line-container">

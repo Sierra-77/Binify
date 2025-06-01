@@ -1,9 +1,11 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Google Sites Design</title>
+    <!-- 引入 Neucha 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet" />
     <style>
         body {
             background-color: white;
@@ -14,7 +16,35 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
+            padding-top: 40px; /* 留出空间避免被 header 遮挡 */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: none; /* 移除底部边框 */
+        }
+
+        header h1 {
+            font-family: 'Neucha', cursive;
+            font-size: 32px;
+            margin: 0;
+            color: black;
+        }
+        /* 新增的链接样式 */
+            header a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .progress-container {
@@ -124,6 +154,10 @@
     </style>
 </head>
 <body>
+
+     <header>
+        <a href="index.html"><h1>BINIFY</h1></a>
+     </header>
 
     <div class="progress-container">
         <div class="line-container">

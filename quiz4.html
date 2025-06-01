@@ -50,11 +50,9 @@
         /* 调整进度条容器位置，避免被横幅遮挡 */
         .progress-container {
             width: 100%;
-            position: fixed; /* 固定在顶部 */
-            top: 60px; /* 紧贴横幅下方 */
-            left: 0;
+            position: relative; /* 改为 relative */
+            top: -80px; /* 向上移动80px（你也可以尝试 -60px/-100px 微调） */
             text-align: center;
-            z-index: 999;
         }
 
         .line-container {
@@ -77,7 +75,7 @@
 
         .line-yellow {
             background-color: #D4B236;
-            width: 14.28%;
+            width: 57.14%;
             z-index: 1;
         }
 

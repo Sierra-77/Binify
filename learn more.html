@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
   <style>
     /* 通用样式 */
     * {
@@ -33,9 +34,10 @@
       align-items: center;
       padding: 10px 20px;
     }
+
     header a {
-  text-decoration: none;
-}
+      text-decoration: none;
+    }
 
     .header-left a {
       text-decoration: none;
@@ -44,6 +46,25 @@
       font-family: 'Neucha', cursive;
       font-weight: normal;
     }
+
+    /* 标题区域样式 */
+    .title-section {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .title-section h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .title-section p {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
     /* 卡片布局 */
     .scrollable-card-grid {
       scrollbar-color: #201c29;
@@ -126,9 +147,15 @@
   <!-- 导航栏 -->
   <header>
     <div class="header-left"><a href="index.html">Binify</a></div>
-    </nav>
   </header>
 
+  <!-- 标题区域 -->
+  <div class="title-section">
+    <h1>Learn More</h1>
+    <p>4 tasks</p>
+  </div>
+
+  <!-- 卡片区域 -->
   <div class="container">
     <div class="scrollable-card-grid" id="card-grid">
       <!-- FAQ 卡片 -->

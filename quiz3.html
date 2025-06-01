@@ -49,7 +49,8 @@
 
         .progress-container {
             width: 100%;
-            margin-top: 80px; /* 控制它和 header 之间的距离 */
+            position: relative; /* 改为 relative */
+            top: -80px; /* 向上移动80px（你也可以尝试 -60px/-100px 微调） */
             text-align: center;
         }
 

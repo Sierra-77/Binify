@@ -16,10 +16,9 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding-top: 80px; /* 增加顶部内边距 */
+            padding-top: 40px; /* 留出空间避免被 header 遮挡 */
             min-height: 100vh;
             box-sizing: border-box;
-            position: relative; /* 添加相对定位 */
         }
 
         header {
@@ -33,7 +32,7 @@
             justify-content: flex-start;
             align-items: center;
             z-index: 1000;
-            border-bottom: none;
+            border-bottom: none; /* 移除底部边框 */
         }
 
         header h1 {
@@ -42,8 +41,8 @@
             margin: 0;
             color: black;
         }
-        
-        header a {
+        /* 新增的链接样式 */
+            header a {
             text-decoration: none;
             color: inherit;
         }
@@ -53,6 +52,7 @@
             margin-top: 120px; /* 控制它和 header 之间的距离 */
             text-align: center;
         }
+
         .line-container {
             width: 75%;
             margin: 0 auto;
@@ -73,7 +73,7 @@
 
         .line-yellow {
             background-color: #D4B236;
-            width: 42.85%; /* 3/7 ≈ 42.85% */
+            width: 14.28%;
             z-index: 1;
         }
 
@@ -89,10 +89,66 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 60px; /* 调整间距 */
+            position: relative;
+            top: -40px;
         }
 
-        /* 其他样式保持不变... */
+        .subtitle {
+            font-size: 28px;
+            font-weight: 700;
+            color: black;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .question-box {
+            background-color: #ECECEC;
+            padding: 50px 30px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 25px;
+        }
+
+        .button {
+            padding: 15px 0;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .btn-yes, .btn-no {
+            background-color: black;
+            color: white;
+        }
+
+        .btn-not-sure {
+            background-color: #E6E4E3;
+            color: black;
+        }
+
+        .button.clicked {
+            background-color: yellow !important;
+            color: black !important;
+        }
     </style>
 </head>
 <body>
@@ -133,7 +189,7 @@
                     destination = 'quiz4.html';
                 }
                 window.location.href = destination;
-            }, 300);
+            }, 300); // 等待动画显示后再跳转
         }
     </script>
 

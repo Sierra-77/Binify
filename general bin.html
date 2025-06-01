@@ -18,18 +18,7 @@
       position: relative;
     }
 
-    /* binify 图标 */
-    .binify {
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      font-size: 18px;
-      color: white;
-    }
+
 
     header {
       position: fixed;
@@ -37,16 +26,15 @@
       left: 0;
       width: 100%;
       background-color: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 10;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* 或 center，根据需要 */
       align-items: center;
       padding: 10px 20px;
+      height: 60px; /* 统一高度 */
+      box-sizing: border-box;
     }
-    header a {
-  text-decoration: none;
-}
 
     .header-left a {
       text-decoration: none;
@@ -55,6 +43,8 @@
       font-family: 'Neucha', cursive;
       font-weight: normal;
     }
+
+
 
     /* 顶部图片 */
     .top-image {
@@ -159,13 +149,11 @@
 </head>
 <body>
   <!-- Binify标志 -->
-  <header>
-    <div class="header-left"><a href="index.html">Binify</a></div>
-    </nav>
-  </header>
+<header>
+  <div class="header-left"><a href="index.html">Binify</a></div>
+  <div class="header-center">Scan Result</div>
+</header>
 
-  <!-- Header 标题 -->
-  <div class="header">Scan Result</div>
 
   <!-- 顶部图片 -->
   <img src="https://i.imgur.com/LTnBlIw.jpeg" alt="Waste Icon" class="top-image">

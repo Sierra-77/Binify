@@ -36,23 +36,23 @@
     }
 
     header h1 {
-    font-family: 'Neucha', cursive;
-    font-size: 32px;
-    margin: 0;
-    color: black;
-  }
-  /* 新增的链接样式 */
+      font-family: 'Neucha', cursive;
+      font-size: 32px;
+      margin: 0;
+      color: black;
+    }
+    /* 新增的链接样式 */
     header a {
-    text-decoration: none;
-    color: inherit;
-  }
+      text-decoration: none;
+      color: inherit;
+    }
 
     .progress-container {
       width: 100%;
-      position: absolute;
-      top: 80px;
-      left: 0;
+      position: relative; /* 改为相对定位 */
       text-align: center;
+      margin-top: 30px; /* 增加顶部间距 */
+      margin-bottom: 20px; /* 增加底部间距 */
     }
 
     .line-container {
@@ -75,8 +75,8 @@
     }
 
     .line-yellow {
-      background-color: #d4b236;
-      width: 28.56%;
+      background-color: lightgray; /* 改为灰色 */
+      width: 28.57%; /* 精确的2/7长度 */
       z-index: 1;
     }
 
@@ -92,7 +92,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin-top: 160px; /* 增加顶部间距以避免被横幅遮挡 */
+      margin-top: 40px; /* 减少顶部间距 */
     }
 
     .subtitle {

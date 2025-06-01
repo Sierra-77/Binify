@@ -51,7 +51,7 @@
         .progress-container {
             width: 100%;
             position: relative; /* 改为 relative */
-            top: -40px; /* 向上移动80px（你也可以尝试 -60px/-100px 微调） */
+            top: -20px; /* 向上移动80px（你也可以尝试 -60px/-100px 微调） */
             text-align: center;
         }
 
@@ -94,6 +94,7 @@
             /* 顶部留白避免被顶部横幅和进度条遮挡 */
             margin-top: 140px; /* 60 (横幅) + 40 (进度条 +间隙) + 40 (安全边距) */
             position: relative;
+            transform: translateY(-20px); 
         }
 
         .subtitle {
